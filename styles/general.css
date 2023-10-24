@@ -28,12 +28,15 @@ input {
   /* COLORS */
   --bg-color: #121212;
   --bg-color-secondary: #1A1A1A;
+  --bg-color-subject: #ff6266;
+
   --purple: #563863;
-  --orange: #ff6267;
+  --orange: #ff6266;
   --yellow: #ffbd70;
   --green: #77DD77;
+  --red: #FF6961;
+
   --border-color: rgba(255, 255, 255, .03);
-  --deutsch: #FF6961;
 
   /* text colors */
   --text-white: #f2f2f2;

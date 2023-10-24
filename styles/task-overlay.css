@@ -68,18 +68,19 @@
   padding: 6px;
   border-radius: 100px;
   background-color: var(--bg-color);
-  border: .5px solid var(--border-color);
+  border: .5px solid rgba(255, 98, 103, .5);
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, .1);
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-white);
   font-family: 'Poppins';
   font-weight: 400;
   font-size: 16px;
-  transition: color .15s ease-in-out;
+  transition: all .15s ease-in-out;
 }
 
 .save-btn:hover,
 .save-btn:active {
-  color: var(--text-white);
+  color: white;
+  border-color: rgba(255, 98, 103, .8);
 }
 
 /* Task Details Overlay */
@@ -148,22 +149,33 @@
   padding: 6px;
   border-radius: 10px;
   background-color: var(--bg-color);
-  border: .5px solid var(--border-color);
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, .1);
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-white);
   font-family: 'Poppins';
   font-weight: 400;
   font-size: 16px;
-  transition: color .15s ease-in-out;
+  transition: all .15s ease-in-out;
   width: 100%;
 }
 
-.editBtn:hover,
-.deleteBtn:hover {
-  color: var(--text-white);
+.editBtn {
+  border: .5px solid rgba(119, 221, 119, .5);
 }
 
-/* Edi Task Overlay */
+.deleteBtn {
+  border: .5px solid rgba(255, 98, 103, .5);
+}
+
+.editBtn:hover {
+  color: white;
+  border-color: rgba(119, 221, 119, .8) ;
+}
+.deleteBtn:hover {
+  color: white;
+  border: .5px solid rgba(255, 98, 103, .8);
+}
+
+/* Edit Task Overlay */
 
 .edit-task-overlay {
   display: flex;
@@ -192,11 +204,16 @@
   padding: 6px;
   border-radius: 100px;
   background-color: var(--bg-color);
-  border: .5px solid var(--border-color);
+  border: .5px solid rgba(119, 221, 119, .5);
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, .1);
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-white);
   font-family: 'Poppins';
   font-weight: 400;
   font-size: 16px;
-  transition: color .15s ease-in-out;
+  transition: all .15s ease-in-out;
+}
+
+.save-edit-btn:hover {
+  color: white;
+  border: .5px solid rgba(119, 221, 119, .8);
 }
