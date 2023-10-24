@@ -1,3 +1,5 @@
+/* Add Task Overlay */
+
 .task-overlay {
   display: flex;
   flex-direction: column;
@@ -80,6 +82,32 @@
 .save-btn:active {
   color: var(--text-white);
 }
+
+/* Task Details Overlay */
+
+.task-details-overlay {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--bg-color-secondary);
+  border: .5px solid var(--border-color);
+  gap: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .15s ease-in-out;
+  z-index: 999;
+  width: calc(100vw - 20px);
+  margin-inline: auto;
+}
+
+.task-details-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
 
 .info {
   display: flex;

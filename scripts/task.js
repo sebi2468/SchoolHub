@@ -4,13 +4,14 @@ const dateInput = document.querySelector('.date-input');
 const saveBtn = document.querySelector('.save-btn');
 let taskCount = document.querySelector('.task-count');
 const taskBox = document.querySelector('.task-box');
+const taskDetailsOverlay = document.querySelector('.task-details-overlay');
 
 taskBox.innerHTML = `<li class="no-tasks">You have no tasks to be done!</li>`;
 
 let tasks = JSON.parse(localStorage.getItem('task-list'));
 
 function showTasks() {
-  let div = "";
+let div = "";
   if (tasks) {
     tasks.forEach((task, id) => {
       let originalDate = task.date;
@@ -114,32 +115,17 @@ function showTaskDetails(id) {
 </div>
 `;
 
-  taskOverlay.innerHTML = html;
+  taskDetailsOverlay.innerHTML = html;
 
-  taskOverlay.classList.add('active');
+  taskDetailsOverlay.classList.add('active');
   isOverlayActive.classList.toggle('active');
   main.style.opacity = '0.4';
 
   isOverlayActive.addEventListener('click', () => {
-    taskOverlay.classList.remove('active');
+    taskDetailsOverlay.classList.remove('active');
     isOverlayActive.classList.remove('active');
     main.style.opacity = '1';
-    taskOverlay.innerHTML = `<p class="task-overlay-title">Add Task</p>
-    <input type="text" class="task-input" placeholder="What's your Task?">
-    <div class="wrapper">
-      <select name="subject" id="subject" class="subject-selector">
-        <option>Subject</option>
-        <option value="Deutsch">Deutsch</option>
-        <option value="Mathe">Mathe</option>
-        <option value="Englisch">Englisch</option>
-        <option value="Religion">Religion</option>
-        <option value="Geschichte">Geschichte</option>
-      </select>
-      <input type="date" name="task-date" id="date" class="date-input">
-    </div>
-    <button class="save-btn">Save</button>`;
   });
-
 }
 
 
