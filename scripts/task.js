@@ -2,11 +2,11 @@ const taskInput = document.querySelector('.task-input');
 const subjectSelector = document.querySelector('.subject-selector');
 const dateInput = document.querySelector('.date-input');
 const saveBtn = document.querySelector('.save-btn');
+const saveEditBtn = document.querySelector('.save-edit-btn');
 let taskCount = document.querySelector('.task-count');
 const taskBox = document.querySelector('.task-box');
 const taskDetailsOverlay = document.querySelector('.task-details-overlay');
-
-taskBox.innerHTML = `<li class="no-tasks">You have no tasks to be done!</li>`;
+const editTaskOverlay = document.querySelector('.edit-task-overlay');
 
 let tasks = JSON.parse(localStorage.getItem('task-list'));
 
@@ -109,8 +109,8 @@ function showTaskDetails(id) {
       <p class="date">${formattedDate}</p>
   </div>
   <div class="btn-wrapper">
-    <button class="editBtn">Edit</button>
-    <button class="deleteBtn">Delete</button>
+    <button class="editBtn" onclick="editTask(${id}, '${tasks[id].name}')">Edit</button>
+    <button class="deleteBtn" onclick="deleteTask(${id})">Delete</button>
   </div>
 </div>
 `;
@@ -126,6 +126,49 @@ function showTaskDetails(id) {
     isOverlayActive.classList.remove('active');
     main.style.opacity = '1';
   });
+}
+
+function deleteTask(deleteId) {
+  tasks.splice(deleteId, 1);
+  localStorage.setItem('task-list', JSON.stringify(tasks));
+  showTasks();
+  taskDetailsOverlay.classList.remove('active');
+  isOverlayActive.classList.remove('active');
+  main.style.opacity = '1';
+  countTasks();
+}
+
+function editTask(taskId, taskName) {
+  console.log(taskId, taskName);
+
+  taskDetailsOverlay.classList.remove('active');
+  editTaskOverlay.classList.add('active');
+  isOverlayActive.classList.add('active');
+  editTaskOverlay.children[1].value = taskName;
+  editTaskOverlay.children[2].children[0].value = tasks[taskId].subject;
+  editTaskOverlay.children[2].children[1].value = tasks[taskId].date;
+  taskInput.focus();
+  main.style.opacity = '0.4';
+
+  isOverlayActive.addEventListener('click', () => {
+    editTaskOverlay.classList.remove('active');
+    isOverlayActive.classList.remove('active');
+    main.style.opacity = '1';
+  });
+
+  saveEditBtn.addEventListener('click', () => {
+    editTaskOverlay.classList.remove('active');
+    isOverlayActive.classList.remove('active');
+    main.style.opacity = '1';
+
+    tasks[taskId].name = editTaskOverlay.children[1].value.trim();
+    tasks[taskId].subject = editTaskOverlay.children[2].children[0].value;
+    tasks[taskId].date = editTaskOverlay.children[2].children[1].value;
+    localStorage.setItem('task-list', JSON.stringify(tasks));
+    showTasks();
+
+  });
+
 }
 
 
