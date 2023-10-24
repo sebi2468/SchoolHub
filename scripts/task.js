@@ -41,7 +41,7 @@ let div = "";
                 </label>
           </div>`
     })
-    taskBox.innerHTML = div;
+    taskBox.innerHTML = div || `<div class="no-tasks">You have no tasks right now!</div>`;
   }
 };
 
