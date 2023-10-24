@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SchoolHub - Everything in one place</title>
+
+  <!-- add favicon -->
+  <link rel="shortcut icon" href="./assets/icons/favicon/favicon.ico" type="image/x-icon">
+
+  <!-- link css files-->
+  <link rel="stylesheet" href="styles/general.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/task.css">
+  <link rel="stylesheet" href="styles/checkbox.css">
+  <link rel="stylesheet" href="styles/task-overlay.css">
+
+  <!-- link fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gugi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <header class="header" data-header>
+
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="./assets/icons/Logo.svg" alt="SchoolHub logo" class="logo">
+        <img src="./assets/logos/SchoolHub & Slogan.png" style="display: none;">
+      </a>
+    </div>
+
+    <div class="navbar" data-navbar>
+      <a href="#">
+        <li class="navlink">Tasks</li>
+      </a>
+      <a href="#">
+        <li class="navlink">Exams</li>
+      </a>
+      <a href="#">
+        <li class="navlink">Grades</li>
+      </a>
+      <a href="#">
+        <li class="navlink">Subjects</li>
+      </a>
+    </div>
+
+    <div class="nav-heading" data-nav-heading>
+      <p>Overview</p>
+    </div>
+
+    <button class="nav-toggle-btn" data-nav-toggle-btn>
+      <img src="./assets/icons/menu.svg" class="menu">
+      <img src="./assets/icons/close.svg" class="close">
+    </button>
+
+    <div class="overlay" data-overlay></div>
+
+  </header>
+
+  <main>
+
+    <section class="page-title">
+      <p>OVERVIEW</p>
+    </section>
+
+    <section class="panels">
+
+      <div class="panel">
+
+        <div class="panel-header">
+          <p class="panel-title">Tasks</p>
+          <p class="task-count">0</p>
+        </div>
+
+        <ul class="task-box"></ul>
+
+      </div>
+
+      <button class="add-task">Add Task</button>
+
+    </section>
+    
+    <div class="is-overlay-active"></div>
+
+  </main>
+
+  <section class="container">
+    <div class="task-overlay">
+
+      <p class="task-overlay-title">Add Task</p>
+      <input type="text" class="task-input" placeholder="What's your Task?" required>
+      <div class="wrapper">
+        <select name="subject" id="subject" class="subject-selector">
+          <option>Subject</option>
+          <option value="Deutsch">Deutsch</option>
+          <option value="Mathe">Mathe</option>
+          <option value="Englisch">Englisch</option>
+          <option value="Religion">Religion</option>
+          <option value="Geschichte">Geschichte</option>
+        </select>
+        <input type="date" name="task-date" id="date" class="date-input">
+      </div>
+      <button class="save-btn">Save</button>
+      
+    </div>
+
+  </section>
+  
+  <!-- link js files -->
+  <script src="scripts/navbar.js"></script>
+  <script src="scripts/header.js"></script>
+  <script src="scripts/task.js"></script>
+  <script src="scripts/task-overlay.js"></script>
+</body>
+
+</html>
+

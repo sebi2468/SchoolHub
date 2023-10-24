@@ -1,0 +1,85 @@
+/* .checkbox {
+  position: relative;
+  overflow: hidden;
+  top: 2px;
+}
+
+.task-check {
+  position: absolute;
+  right: 100px;
+}
+
+.checkbox__inner {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: .5px solid rgba(255, 255, 255, 0.4);
+  background: transparent no-repeat center;
+  transition: all .15s ease-in-out;
+}
+
+.task-check:checked + .checkbox__inner {
+  border-color: var(--green);
+  background-image: url("../assets/icons/checked.svg");
+  background-size: 17px 17px;
+}
+
+*/
+
+.task-check {
+  display: none;
+}
+.checkbox {
+  width: 19px;
+  height: 19px;
+  border: .5px solid rgba(255, 255, 255, .4);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 3px;
+  transition: 0.3s all;
+  z-index: 5;
+}
+.checkbox svg {
+  margin-top: 1px;
+  width: 25px;
+  height: 25px;
+}
+.task-check:checked + .checkbox {
+  background: var(--green);
+  border: .5px solid var(--green);
+}
+.task-check:checked + .checkbox svg path {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  stroke: var(--bg-color-secondary);
+  stroke-width: 3;
+  animation: check 4s forwards;
+}
+.checkbox::before {
+  content: "";
+  background: rgba(119, 221, 119, .2);
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  display: block;
+  width: 45px;
+  height: 45px;
+  z-index: 10;
+}
+.task-check:checked + .checkbox::before {
+  animation: ripple 0.3s;
+}
+@keyframes check {
+  to {
+      stroke-dashoffset: 0;
+  }
+}
+@keyframes ripple {
+  to {
+      transform: scale(1);
+  }
+}

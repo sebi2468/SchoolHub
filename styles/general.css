@@ -1,0 +1,81 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li { list-style: none; }
+
+a { 
+  text-decoration: none; 
+  cursor: pointer;
+}
+
+button { 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+}
+
+
+:root {
+  
+  /* COLORS */
+  --bg-color: #121212;
+  --bg-color-secondary: #1A1A1A;
+  --purple: #563863;
+  --orange: #ff6267;
+  --yellow: #ffbd70;
+  --green: #77DD77;
+  --border-color: rgba(255, 255, 255, .03);
+  --deutsch: #FF6961;
+
+  /* text colors */
+  --text-white: #f2f2f2;
+
+  /* fonts */
+  --gugi: 'Gugi';
+  --poppins: "Poppins";
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  margin-block: 5px;
+  border-radius: 100vw;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, .4);
+  font-size: 14px;
+}
+
+body {
+  background-color: var(--bg-color);
+  scroll-behavior: smooth;
+  margin-top: 60px;
+}
+
+body.nav-active { overflow: hidden ; }
+
+.container {
+  width: calc(100vw - 20px);
+  margin-inline: auto;
+}
